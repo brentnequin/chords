@@ -5,7 +5,7 @@ const app = express()
 app.use(express.json())
 
 export default {
-    path: '/api/status',
+    // path: '/api/status',
     handler: app
 }
 

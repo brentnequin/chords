@@ -10,7 +10,7 @@ app.use(express.json())
 * logic for our api will go here
 */
 export default {
-  path: '/api',
+  // path: '/api',
   handler: app
 }
 
@@ -38,7 +38,7 @@ app.get('/song/:id', async (req, res) => {
     res.json(song)
 })
 
-app.get('/songs', async (req, res) => {
+app.get('/api/songs', async (req, res) => {
     const songs = await prisma.song.findMany({})
     res.json(songs)
 })
