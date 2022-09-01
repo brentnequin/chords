@@ -2,7 +2,7 @@ import express from 'express'
 
 const app = express()
 
-app.get('/status', async (req, res) => {
+app.get('/api/status', async (req, res) => {
     res.status(200)
 })
 
