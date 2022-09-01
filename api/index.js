@@ -4,6 +4,8 @@ import { PrismaClient } from '@prisma/client'
 const prisma = new PrismaClient()
 const app = express()
 
+const port = process.env.PORT || 3030; // default port to listen
+
 app.use(express.json())
 
 /** 
@@ -82,5 +84,12 @@ app.get('/filterSongs', async (req, res) => {
     })
     res.send(songs)
 })
+
+if (require.main === module) {
+  const port = 3001
+  app.listen(port, () => {
+    console.log(`API server listening on port ${port}`)
+  })
+}
 
 module.exports = app;
