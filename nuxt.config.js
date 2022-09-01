@@ -47,7 +47,8 @@ export default {
   ],
 
   serverMiddleware: [
-    '~/api/index.js'
+    '~/api/index.js',
+    '~/api/status.js'
   ],
 
   markdownit: {

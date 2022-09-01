@@ -4,8 +4,6 @@ import { PrismaClient } from '@prisma/client'
 const prisma = new PrismaClient()
 const app = express()
 
-const port = process.env.PORT || 3030; // default port to listen
-
 app.use(express.json())
 
 /** 
@@ -17,10 +15,6 @@ export default {
 }
 
 app.get('/api', (req, res) => res.json({ foo: 'bar' }))
-
-app.get('/status', async (req, res) => {
-  res.json({up: true})
-})
 
 app.post(`/song`, async (req, res) => {
     const result = await prisma.song.create({
