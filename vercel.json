@@ -4,12 +4,25 @@
       {
         "src": "./api/index.js",
         "use": "@vercel/node"
+      },
+      {
+        "src": "./build/**",
+        "use": "@vercel/static",
+        "config": { "includeFiles": ["build/**"] }
       }
     ],
     "routes": [
         {
-            "src": "/(.*)",
-            "dest": "/"
-        }
+            "src": "/api/(.*)",
+            "dest": "/build/index.js"
+        },
+        {
+            "src": "/",
+            "dest": "build/index.html"
+          },
+          {
+            "src": "/(.+)",
+            "dest": "build/$1"
+          }
     ]
   }
