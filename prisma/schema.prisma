@@ -7,7 +7,7 @@ generator client {
 
 datasource db {
   provider = "postgresql"
-  url      = "postgresql://brent@localhost/chords"
+  url      = env("DATABASE_URL")
 }
 
 model Song {
