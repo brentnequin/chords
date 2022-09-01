@@ -14,6 +14,10 @@ export default {
   handler: app
 }
 
+app.get('/status', async (req, res) => {
+  res.json({up: true})
+})
+
 app.post(`/song`, async (req, res) => {
     const result = await prisma.song.create({
       data: {
