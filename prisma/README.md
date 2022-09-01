@@ -1,0 +1,1 @@
+* https://dev.to/prisma/adding-an-api-and-database-to-your-nuxt-app-with-prisma-2nlp
