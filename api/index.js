@@ -14,6 +14,8 @@ export default {
   handler: app
 }
 
+app.get('/api/testing', (req, res) => res.json({ foo: 'bar' }))
+
 app.get('/status', async (req, res) => {
   res.json({up: true})
 })
