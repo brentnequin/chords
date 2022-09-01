@@ -10,15 +10,11 @@ app.use(express.json())
 * logic for our api will go here
 */
 export default {
-  path: '/api',
+  // path: '/api',
   handler: app
 }
 
-app.get('/status', async (req, res) => {
-  res.json({up: true})
-})
-
-app.post(`/song`, async (req, res) => {
+app.post(`/api/song`, async (req, res) => {
     const result = await prisma.song.create({
       data: {
         title: req.body.title,
@@ -30,7 +26,7 @@ app.post(`/song`, async (req, res) => {
     res.json(result)
 })
 
-app.get('/song/:id', async (req, res) => {
+app.get('/api/song/:id', async (req, res) => {
     const { id } = req.params
     const song = await prisma.song.findUnique({
       where: {
@@ -40,12 +36,12 @@ app.get('/song/:id', async (req, res) => {
     res.json(song)
 })
 
-app.get('/songs', async (req, res) => {
+app.get('/api/songs', async (req, res) => {
     const songs = await prisma.song.findMany({})
     res.json(songs)
 })
 
-app.delete(`/song/:id`, async (req, res) => {
+app.delete(`/api/song/:id`, async (req, res) => {
     const { id } = req.params
     const song = await prisma.song.delete({
         where: {
@@ -55,7 +51,7 @@ app.delete(`/song/:id`, async (req, res) => {
     res.json(song)
 })
 
-app.get('/filterSongs', async (req, res) => {
+app.get('/api/filterSongs', async (req, res) => {
     const { searchString } = req.query
     const songs = await prisma.song.findMany({
       where: {
@@ -80,3 +76,5 @@ app.get('/filterSongs', async (req, res) => {
     })
     res.send(songs)
 })
+
+module.exports = app;
