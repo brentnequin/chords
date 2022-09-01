@@ -16,6 +16,10 @@ export default {
 
 app.get('/api', (req, res) => res.json({ foo: 'bar' }))
 
+app.get('/api/status', async (req, res) => {
+  res.json({})
+})
+
 app.post(`/song`, async (req, res) => {
     const result = await prisma.song.create({
       data: {
