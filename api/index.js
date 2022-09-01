@@ -80,3 +80,5 @@ app.get('/filterSongs', async (req, res) => {
     })
     res.send(songs)
 })
+
+module.exports = app;
