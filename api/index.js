@@ -14,9 +14,7 @@ export default {
   handler: app
 }
 
-app.get('/api', (req, res) => res.json({ foo: 'bar' }))
-
-app.post(`/song`, async (req, res) => {
+app.post(`/api/song`, async (req, res) => {
     const result = await prisma.song.create({
       data: {
         title: req.body.title,
@@ -28,7 +26,7 @@ app.post(`/song`, async (req, res) => {
     res.json(result)
 })
 
-app.get('/song/:id', async (req, res) => {
+app.get('/api/song/:id', async (req, res) => {
     const { id } = req.params
     const song = await prisma.song.findUnique({
       where: {
@@ -43,7 +41,7 @@ app.get('/api/songs', async (req, res) => {
     res.json(songs)
 })
 
-app.delete(`/song/:id`, async (req, res) => {
+app.delete(`/api/song/:id`, async (req, res) => {
     const { id } = req.params
     const song = await prisma.song.delete({
         where: {
@@ -53,7 +51,7 @@ app.delete(`/song/:id`, async (req, res) => {
     res.json(song)
 })
 
-app.get('/filterSongs', async (req, res) => {
+app.get('/api/filterSongs', async (req, res) => {
     const { searchString } = req.query
     const songs = await prisma.song.findMany({
       where: {
