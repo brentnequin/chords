@@ -13,5 +13,5 @@ model Song {
   artist  String?
   key     String
   content String?
-  dateAdded DateTime?
+  dateAdded DateTime @default(now())
 }
