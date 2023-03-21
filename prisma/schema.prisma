@@ -1,0 +1,17 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "cockroachdb"
+  url      = env("DATABASE_URL")
+}
+
+model Song {
+  id      Int @id @default(sequence())
+  name    String
+  artist  String?
+  key     String
+  content String?
+  dateAdded DateTime?
+}
