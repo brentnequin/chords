@@ -31,10 +31,10 @@
 const route = useRoute()
 const song = await $fetch(`/api/songs/${route.params.id}`)
 
-const name = song.name
-const artist = song.artist
-const key = song.key
-var content = ref(song.content)
+let name = song.name
+let artist = song.artist
+let key = song.key
+let content = ref(song.content)
 
 async function saveSong() {
     const data = {
