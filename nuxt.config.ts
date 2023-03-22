@@ -1,5 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  modules: ['@sidebase/nuxt-auth'],
   runtimeConfig: {
     public: {
       apiKey: process.env.API_KEY
@@ -12,5 +13,7 @@ export default defineNuxtConfig({
       autoprefixer: {},
     },
   },
-  modules: ['@sidebase/nuxt-auth']
+  auth: {
+    origin: process.env.VERCEL_URL || 'http://localhost:3000',
+  }
 })
