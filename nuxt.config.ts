@@ -14,6 +14,7 @@ export default defineNuxtConfig({
     },
   },
   auth: {
+    enableGlobalAppMiddleware: true,
     origin: process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'http://localhost:3000',
   }
 })
