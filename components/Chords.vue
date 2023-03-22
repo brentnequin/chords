@@ -1,6 +1,8 @@
 <template>
-    <div class="m-8 p-8 bg-gray-700">
-        <div class="py-4"><span class="text-xl">{{ name }} by <b>{{ artist }}</b></span></div>
+    <div class="rounded-lg p-8 bg-slate-800">
+        <div v-if="name" class="py-4">
+            <span class="text-xl">{{ name }}<text v-if="artist"> by <b>{{ artist }}</b></text></span>
+        </div>
         <div class="my-4 font-mono" v-html="markdownToHtml"></div>
     </div>
 </template>
