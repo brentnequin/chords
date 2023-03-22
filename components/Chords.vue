@@ -33,5 +33,9 @@ export default {
 }
 </script>
   
-<style src='markdown-it-chords/markdown-it-chords.css'>
+<style>
+@import 'markdown-it-chords/markdown-it-chords.css';
+h1 {
+    @apply text-xl
+}
 </style>
