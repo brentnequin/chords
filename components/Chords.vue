@@ -3,7 +3,7 @@
         <div v-if="name" class="py-4">
             <span class="text-xl">{{ name }}<text v-if="artist"> by <b>{{ artist }}</b></text></span>
         </div>
-        <div class="my-4 font-mono" v-html="markdownToHtml"></div>
+        <div class="my-4 font-mono space-y-4" v-html="markdownToHtml"></div>
     </div>
 </template>
   
