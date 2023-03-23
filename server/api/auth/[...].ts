@@ -8,7 +8,7 @@ export default NuxtAuthHandler({
   providers: [
     GithubProvider.default({
       clientId: process.env.AUTH_GITHUB_CLIENT_ID,
-      clientSecret: process.env.AUTH_GITBUB_SECRET
+      clientSecret: process.env.AUTH_GITHUB_SECRET
     })
   ]
 })

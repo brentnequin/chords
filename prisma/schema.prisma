@@ -8,10 +8,17 @@ datasource db {
 }
 
 model Song {
-  id      Int @id @default(sequence())
-  name    String
-  artist  String?
-  key     String
-  content String?
+  id        Int      @id @default(sequence())
+  name      String
+  artist    String?
+  key       String
+  content   String?
   dateAdded DateTime @default(now())
+}
+
+model User {
+  id        Int     @id @default(sequence())
+  email     String  @unique
+  firstName String?
+  lastName  String?
 }
