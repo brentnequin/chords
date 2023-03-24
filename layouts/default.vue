@@ -3,5 +3,6 @@
     <AppHeader />
     <!-- <AuthStatusBar /> -->
     <slot />
+    <AppFooter />
   </div>
 </template>

@@ -28,6 +28,7 @@
 </template>
 
 <script setup>
+definePageMeta({ auth: true })
 const route = useRoute()
 const song = await $fetch(`/api/songs/${route.params.id}`)
 

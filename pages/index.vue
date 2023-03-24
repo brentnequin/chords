@@ -1,3 +1,8 @@
 <template>
-    <Chords name="Call Mahal" artist="Brenty Poo" content="[C]La" />
+    <SongList />
 </template>
+
+<script setup>
+const songs = await $fetch('/api/songs', { })
+
+</script>

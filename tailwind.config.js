@@ -6,6 +6,11 @@ module.exports = {
         './layouts/**/*.{html,js,vue}',
     ],
     theme: {
+        extend: {
+            fontFamily: {
+              'm-plus-rounded-1c': ['"M PLUS Rounded 1c"', 'sans-serif']
+            }
+        },
         container: {
             center: true
         },
