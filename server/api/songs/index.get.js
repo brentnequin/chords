@@ -5,7 +5,7 @@ export default defineEventHandler(async (event) => {
 
     const options = {}
 
-    options.take = query.limit || 20
+    options.take = parseInt(query.limit) || 20
 
     switch(query.sortBy) {
         case 'mostRecent':
