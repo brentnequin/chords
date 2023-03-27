@@ -3,7 +3,7 @@
         <h1 class="text-4xl"><a href="/">Chords</a></h1>
         <div class="flex items-center space-x-8">
             <button v-if="status === 'authenticated'" @click="signOut">Logout</button>
-            <p v-if="status !== 'authenticated'"><a href="/login">Login</a></p>
+            <button v-else @click="signIn('auth0')">Login</button>
             <p v-if="status === 'authenticated'"><a href="#">{{ data.user.name }}</a></p>
             <SearchBar />
             <p><a href="/browse">Browse</a></p>
@@ -13,6 +13,8 @@
 </template>
 
 <script setup>
-const { data, status, signOut } = useSession()
-
+const { data, status, signOut, signIn } = useSession()
+const isAuthenticated = () => {
+  return status === 'authenticated'
+}
 </script>
