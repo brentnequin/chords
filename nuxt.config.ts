@@ -9,6 +9,7 @@ export default defineNuxtConfig({
   runtimeConfig: {
     public: {
       apiKey: process.env.API_KEY,
+      vercelDeploymentUrl: process.env.VERCEL_URL || 'localhost:3000'
     }
   },
   css: ["@/assets/css/tailwind.css"],
