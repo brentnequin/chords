@@ -7,15 +7,11 @@
             <p v-if="status === 'authenticated'"><a href="#">{{ data.user.name }}</a></p>
             <SearchBar />
             <p><a href="/browse">Browse</a></p>
-            <p><a href="#">Upload</a></p>
+            <p><a href="/upload">Upload</a></p>
         </div>
     </div>
 </template>
 
 <script setup>
 const { data, status, signOut, signIn } = useSession()
-const runtimeConfig = useRuntimeConfig()
-const isAuthenticated = () => {
-  return status === 'authenticated'
-}
 </script>
