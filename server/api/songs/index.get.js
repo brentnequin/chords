@@ -3,13 +3,15 @@ import prisma from "~~/server/data/prisma"
 export default defineEventHandler(async (event) => {
     const query = getQuery(event)
 
-    const options = {}
+    const options = {
+        orderBy: []
+    }
 
     options.take = parseInt(query.limit) || 20
 
     switch(query.sortBy) {
         case 'mostRecent':
-            options.dateAdded = 'desc'
+            options.orderBy.push({dateAdded: 'desc'}) 
             break
         case undefined:
             break
