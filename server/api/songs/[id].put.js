@@ -10,7 +10,12 @@ export default defineEventHandler(async (event) => {
             name: body.name,
             artist: body.artist,
             key: body.key,
-            content: body.content
+            content: body.content,
+            updatedBy: {
+                update: {
+                    email: body.userEmail
+                }
+            }
         }
     })
     return song

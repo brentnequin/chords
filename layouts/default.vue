@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <AppHeader />
-    <!-- <AuthStatusBar /> -->
+    <AuthStatusBar />
     <slot />
     <AppFooter />
   </div>

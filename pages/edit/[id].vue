@@ -28,7 +28,8 @@
 </template>
 
 <script setup>
-definePageMeta({ auth: true })
+const { data, status } = useSession()
+if (status.value === 'unauthenticated') await navigateTo('/')
 const route = useRoute()
 const song = await $fetch(`/api/songs/${route.params.id}`)
 
@@ -38,19 +39,21 @@ let key = song.key
 let content = ref(song.content)
 
 async function saveSong() {
-    const data = {
-        name: name,
-        artist: artist,
-        key: key,
-        content: content.value
-    }
     try {
-        await $fetch(`/api/songs/${route.params.id}`, {method: "PUT", body: data})
+        await $fetch(`/api/songs/${route.params.id}`, {
+            method: "PUT",
+            body: {
+                name: name,
+                artist: artist,
+                key: key,
+                content: content.value,
+                userEmail: data.value.user.email
+            }
+        })
+        goToSong()
     } catch (error) {
         console.log(error)
-        return
     }
-    goToSong()
 }
 async function goToSong() {
     await navigateTo(`/song/${route.params.id}`)

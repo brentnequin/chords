@@ -3,20 +3,30 @@
         <div class="flex space-x-4 rounded-lg bg-slate-800 p-8">
             <div>
                 <label for="name" class="block">Name</label>
-                <input class="rounded-lg bg-gray-700 p-2.5" id="name" v-model="name">
+                <input 
+                    class="rounded-lg bg-gray-700 p-2.5" 
+                    id="name" v-model="name">
             </div>
             <div>
                 <label for="artist" class="block">Artist</label>
-                <input class="rounded-lg bg-gray-700 p-2.5" id="artist" v-model="artist">
+                <input 
+                    class="rounded-lg bg-gray-700 p-2.5" 
+                    id="artist" v-model="artist">
             </div>
             <div>
                 <label for="key" class="block">Key</label>
-                <input class="rounded-lg bg-gray-700 p-2.5" id="key" v-model="key">
+                <input 
+                    class="rounded-lg bg-gray-700 p-2.5" 
+                    id="key" v-model="key">
             </div>
         </div>
         <div class="grid gap-4 grid-cols-2">
             <div class="space-y-4">
-                <div contenteditable="true" class="p-8 w-full rounded-lg bg-slate-800 font-mono h-fit" @input="content = $event.target.innerText"></div>
+                <div 
+                    contenteditable="true" 
+                    class="p-8 w-full rounded-lg bg-slate-800 font-mono h-fit" 
+                    @input="content = $event.target.innerText">
+                </div>
             </div>
             <Chords name="Preview" :content="content" />
         </div>
@@ -28,9 +38,10 @@
 </template>
 
 <script setup>
-definePageMeta({ auth: true })
-const { data } = useSession()
+// definePageMeta({ auth: true })
+const { data, status } = useSession()
 
+if (status.value === 'unauthenticated') await navigateTo('/')
 
 const name = ref('')
 const artist = ref('')
@@ -38,20 +49,22 @@ const key = ref('C')
 const content = ref('')
 
 async function saveSong() {
-    const data = {
+
+    console.log(data.value)
+
+    const payload = {
         name: name.value,
         artist: artist.value,
         key: key.value,
         content: content.value,
-        // user: data.user.name
+        userEmail: data.value.user.email
     }
-    let song
     try {
-        song = await $fetch(`/api/songs`, { method: "POST", body: data })
+        const song = await $fetch(`/api/songs`, { method: "POST", body: payload })
+        await navigateTo(`/song/${song.id}`)
     } catch (error) {
         console.log(error)
-        return
     }
-    await navigateTo(`/song/${song.id}`)
+    
 }
 </script>

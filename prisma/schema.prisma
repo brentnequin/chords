@@ -15,14 +15,25 @@ model Song {
   content   String?
   dateAdded DateTime @default(now())
 
-  createdBy User @relation(fields: [userId], references: [id])
-  userId    Int @default(0)
+  createdBy      User   @relation("CreatedBy", fields: [createdByEmail], references: [email])
+  createdByEmail String @default("system")
+
+  updatedBy      User?   @relation("UpdatedBy", fields: [updatedByEmail], references: [email])
+  updatedByEmail String? @default("system")
 }
 
 model User {
-  id        Int     @id @default(sequence())
-  email     String  @unique
-  firstName String?
-  lastName  String?
-  Song      Song[]
+  // id        Int     @id @default(sequence())
+  email        String  @id @unique
+  firstName    String?
+  lastName     String?
+  songsCreated Song[]  @relation("CreatedBy")
+  songsUpdated Song[]  @relation("UpdatedBy")
+  // gitHubUser GitHubUser @unique
 }
+
+// model GitHubUser{
+//   username String @id @unique
+//   user User @relation(fields: [userId], references: [id])
+//   userId Int
+// }
