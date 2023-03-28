@@ -1,5 +1,5 @@
 <template>
-    <SongList />
+    <SongList heading="Recently Added" />
 </template>
 
 <script setup>

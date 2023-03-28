@@ -1,5 +1,5 @@
 <template>
-    <SongList :songs="songs" />
+    <SongList :songs="songs" heading="Browse" />
 </template>
     
 <script setup>
