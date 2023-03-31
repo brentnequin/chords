@@ -12,7 +12,8 @@ module.exports = {
             }
         },
         container: {
-            center: true
+            center: true,
+            padding: '2rem'
         },
         screens: {
             'mobile': '480px',

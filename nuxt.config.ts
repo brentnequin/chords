@@ -4,7 +4,8 @@ export default defineNuxtConfig({
     '@sidebase/nuxt-auth',
     '@nuxtjs/google-fonts',
     // '@nuxtjs/color-mode',
-    'unplugin-icons/nuxt'
+    'unplugin-icons/nuxt',
+    'nuxt-headlessui'
   ],
   runtimeConfig: {
     public: {
