@@ -1,5 +1,5 @@
 <template>
-    <SongList heading="Recently Added" />
+    <SongList heading="Recently Added" :songs="songs" />
 </template>
 
 <script setup>

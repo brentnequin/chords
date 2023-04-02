@@ -53,11 +53,17 @@
                     enter-active-class="transition duration-100 ease-out" enter-from-class="transform scale-95 opacity-0"
                     enter-to-class="transform scale-100 opacity-100" leave-active-class="transition duration-75 ease-in"
                     leave-from-class="transform scale-100 opacity-100" leave-to-class="transform scale-95 opacity-0">
-                    <HeadlessPopoverPanel class="absolute mt-4 right-0 rounded-md bg-slate-700 shadow-lg">
+                    <HeadlessPopoverPanel class="absolute mt-4 right-0 rounded-md bg-slate-700 shadow-lg w-80">
                         <div class="grid">
-                            <SearchBar class="m-2 px-2 py-2 rounded-md hover:bg-slate-600 place-start col-span-2" />
-                            <NuxtLink to="/browse" class="m-2 px-4 py-2 rounded-md hover:bg-slate-600 text-left">Browse</NuxtLink>
-                            <NuxtLink to="/upload" class="m-2 px-4 py-2 rounded-md hover:bg-slate-600 text-left">Upload</NuxtLink>
+                            <SearchBar class="m-2 px-2 py-2 rounded-md hover:bg-slate-600 place-start" />
+                            <NuxtLink 
+                                v-for="link in menuLinks"
+                                :href=link.to
+                                class="m-2 px-4 py-2 rounded-md hover:bg-slate-600 text-left" 
+                                @click.native="close()">
+                                <p class="text-sm">{{ link.name }}</p>
+                                <p class="text-sm text-gray-400">{{ link.description }}</p>
+                            </NuxtLink>
                         </div>
                     </HeadlessPopoverPanel>
                 </transition>
@@ -73,6 +79,16 @@
                     enter-to-class="transform scale-100 opacity-100" leave-active-class="transition duration-75 ease-in"
                     leave-from-class="transform scale-100 opacity-100" leave-to-class="transform scale-95 opacity-0">
                     <HeadlessPopoverPanel class="absolute mt-4 right-0 rounded-md bg-slate-700 shadow-lg w-80">
+                        <div v-if="status === 'authenticated'" class="bg-gray-700 grid rounded-t-lg">
+                            <NuxtLink href='/#' class="m-2 px-4 py-4 rounded-md hover:bg-slate-600 text-left" @click.native="close()">
+                                <p class="text-sm text-left">Profile</p>
+                                <p class="text-sm text-gray-400">{{ data.user.name }}</p>
+                            </NuxtLink>
+                            <button class="m-2 px-4 py-4 rounded-md hover:bg-slate-600 text-sm text-left" @click="signOut()">Logout</button>
+                        </div>
+                        <div v-else class="bg-gray-700 grid rounded-t-lg">
+                            <button class="m-2 px-4 py-4 rounded-md hover:bg-slate-600 text-sm text-left" @click="signIn('auth0')">Login</button>
+                        </div>
                         <div class="grid">
                             <SearchBar class="m-2 px-2 py-2 rounded-md hover:bg-slate-600 place-start" />
                             <NuxtLink 
@@ -83,13 +99,6 @@
                                 <p class="text-sm">{{ link.name }}</p>
                                 <p class="text-sm text-gray-400">{{ link.description }}</p>
                             </NuxtLink>
-                        </div>
-                        <div v-if="status === 'authenticated'" class="bg-gray-700 grid rounded-b-lg">
-                            <p class="m-2 px-4 py-2 text-lg col-span-2">{{ data.user.name }}</p>
-                            <NuxtLink href='/#' class="m-2 px-4 py-4 rounded-md hover:bg-slate-600 text-left" @click.native="close()">
-                                <p class="text-sm text-center">Profile</p>
-                            </NuxtLink>
-                            <button class="m-2 px-4 py-4 rounded-md hover:bg-slate-600 text-sm text-center" @click="logout()">Logout</button>
                         </div>
                     </HeadlessPopoverPanel>
                 </transition>
