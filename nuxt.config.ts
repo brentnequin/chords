@@ -1,5 +1,13 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  app: {
+    head: {
+      title: 'Chords',
+      meta: [
+        { name: 'description', content: 'A web-app for song chords.'}
+      ]
+    }
+  },
   modules: [
     '@sidebase/nuxt-auth',
     '@nuxtjs/google-fonts',

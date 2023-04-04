@@ -34,6 +34,10 @@ const { status } = useSession()
 const route = useRoute()
 const song = await $fetch(`/api/songs/${route.params.id}`)
 
+useSeoMeta({
+    title: `${song.name} | Chords`
+})
+
 const editSong = async () => await navigateTo(`/edit/${song.id}`)
 
 const bassOnlyEnabled = ref(false)

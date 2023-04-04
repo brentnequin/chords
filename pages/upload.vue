@@ -38,6 +38,9 @@
 </template>
 
 <script setup>
+useSeoMeta({
+  title: 'Upload | Chords'
+})
 // definePageMeta({ auth: true })
 const { data, status } = useSession()
 

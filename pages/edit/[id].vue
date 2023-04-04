@@ -33,6 +33,10 @@ if (status.value === 'unauthenticated') await navigateTo('/')
 const route = useRoute()
 const song = await $fetch(`/api/songs/${route.params.id}`)
 
+useSeoMeta({
+  title: `Edit - ${song.name} | Chords`
+})
+
 let name = song.name
 let artist = song.artist
 let key = song.key
