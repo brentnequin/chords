@@ -28,7 +28,7 @@ export default {
     },
     computed: {
         markdownToHtml() {
-            return md.render(this.content)
+            return md.render(this.content).replace(/\[N\.C\.\]/g, '<span class="chord"><span class="inner"><i class="name">N.C.</i></span></span>')
         }
     }
 }
