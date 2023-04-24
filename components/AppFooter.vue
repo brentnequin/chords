@@ -3,9 +3,9 @@
         <hr class="border px-8" />
         <div class="m-8 grid grid-cols-2">
             <div class="flex flex-col space-y-2">
+                <small><a href="https://brentnequin.com">Created By Brent Nequin</a></small>
             </div>
             <div class="flex flex-col space-y-2">
-                <small><a href="https://brentnequin.com">Created By Brent Nequin</a></small>
                 <small><a href="https://nuxt.com">Built With Nuxt</a></small>
                 <small><a href="https://vercel.com">Powered By Vercel</a></small>
             </div>
