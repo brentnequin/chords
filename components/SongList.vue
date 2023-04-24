@@ -1,5 +1,5 @@
 <template>
-    <div class="bg-slate-800 my-8 p-8 rounded-md overflow-hidden">
+    <div class="my-8 p-8 rounded-md overflow-hidden">
         <h2 class="text-xl py-4">{{ heading }}</h2>
         <table class="table-auto min-w-full">
             <thead class="text-left">

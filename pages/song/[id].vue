@@ -4,22 +4,22 @@
             <div class="flex">
                 <button 
                     @click="transposeSteps--"
-                    class="px-3 py-2.5 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium text-sm dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 rounded-l-lg">
+                    class="px-3 py-2.5 text-white bg-blue-500 hover:bg-blue-600 focus:outline-none text-sm rounded-l-lg">
                     -
                 </button>
-                <span class="w-10 text-white bg-blue-800 focus:outline-none font-medium text-sm text-center">
+                <span class="w-10 text-white bg-blue-600 focus:outline-none font-medium text-sm text-center">
                     <p class="my-2.5">{{ key }}</p>
                 </span>
                 <button
                     @click="transposeSteps++"
-                    class="px-3 py-2.5 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium text-sm dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 rounded-r-lg">
+                    class="px-3 py-2.5 text-white bg-blue-500 hover:bg-blue-600 focus:outline-none text-sm rounded-r-lg">
                     +
                 </button>
             </div>
             <div>
                 <button
                     @click="bassOnlyEnabled = !bassOnlyEnabled"
-                    class="px-5 py-2.5 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Bass Only</button>
+                    class="px-5 py-2.5 text-white bg-blue-500 hover:bg-blue-600 focus:outline-none rounded-lg text-sm">Bass Only</button>
             </div>
             <!-- <div class="flex">
                 <button 

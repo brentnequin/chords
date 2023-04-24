@@ -1,5 +1,5 @@
 <template>
-    <div class="rounded-lg p-8 bg-slate-800">
+    <div class="rounded-lg p-8">
         <div v-if="name" class="py-4">
             <span class="text-xl">{{ name }}<text v-if="artist"> by <b>{{ artist }}</b></text></span>
         </div>
